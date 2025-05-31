@@ -20,17 +20,24 @@ public class Aluno implements Serializable {
     
     private PropertyChangeSupport propertySupport;
     
-    private int matrícula;
+    private int matricula;
     private int idade;
     private int telefone;
     private String nome;
-    private String sobrenome;
     private String CPF;
     private LocalDate dataNascimento;
 
     
-    public Aluno() {
+    public Aluno(int mat, int idade, int telefone, String nome, String CPF,
+            LocalDate dataNasc) 
+    {
         propertySupport = new PropertyChangeSupport(this);
+        this.matricula = mat;
+        this.idade = idade;
+        this.telefone = telefone;
+        this.nome = nome;
+        this.CPF = CPF;
+        this.dataNascimento = dataNasc;
     }
     
     public String getSampleProperty() {
@@ -52,7 +59,7 @@ public class Aluno implements Serializable {
     }
     
     public void setMat(int valor) {
-    	this.matrícula = valor;
+    	this.matricula = valor;
     }
     public void setIdade(int valor) {
     	this.idade = valor;
@@ -63,9 +70,7 @@ public class Aluno implements Serializable {
     public void setNome(String valor) {
     	this.nome = valor;
     }
-    public void setSobreNome(String valor) {
-    	this.sobrenome = valor;
-    }
+
     public void setCpf(String valor) {
         this.CPF = valor;
     }
@@ -74,7 +79,7 @@ public class Aluno implements Serializable {
     }
     
     public int getMat() {
-    	return this.matrícula;
+    	return this.matricula;
     }
 
     public int getIdade() {
@@ -87,10 +92,6 @@ public class Aluno implements Serializable {
 
     public String getNome() {
     	return this.nome;
-    }
-    
-    public String getSobrenome() {
-    	return this.sobrenome;
     }
 
     public String getCPF() {
